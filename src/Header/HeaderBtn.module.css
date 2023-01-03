@@ -1,0 +1,30 @@
+.button {
+    height: 6rem;
+    width: 6rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(23, 23, 23);
+    background-color: rgb(247, 62, 161);
+    box-shadow: 5px 5px 10px rgb(155, 153, 153);
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    transition: 0.1s ease-in-out;
+}
+
+.button:hover,
+.button:active {
+    background-color: rgb(246, 5, 134);
+    height: 5.5rem;
+    width: 5.5rem;
+    font-size: 1.2rem;
+}
+
+.buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,10 @@
+.list {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 17rem;
+}
+.list ul {
+    list-style: none;
+    margin-right: 2rem;
+}
