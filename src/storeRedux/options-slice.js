@@ -2,10 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const optionsSlice = createSlice({
     name: "list",
-    initialState: {
+    initialState: JSON.parse(localStorage.getItem("itemsList")) || {
         items: [],
         totalItems: 0,
-        isInLocalstorage: false,
     },
     reducers: {
         addItemToList(state, action) {
@@ -18,13 +17,12 @@ const optionsSlice = createSlice({
             if (!existingItem) {
                 state.items.push({
                     id: newItem.id,
-                    name: newItem.name,
+                    title: newItem.title,
                     author: newItem.author,
                     description: newItem.description,
                 });
                 state.totalItems++;
                 localStorage.setItem("itemsList", JSON.stringify(state));
-                state.isInLocalstorage = true;
             } else {
                 //if the item does exist in the list:
                 alert("The book is already in the list");

@@ -6,9 +6,6 @@ import classes from "./BookItem.module.css";
 
 const BookItem = (props) => {
     const dispatch = useDispatch();
-    const alreadyReadQuantityInStorage = useSelector(
-        (state) => state.list.isInLocalstorage
-    );
 
     const { id, title, author, description } = props;
 
@@ -16,7 +13,6 @@ const BookItem = (props) => {
         dispatch(
             optionsActions.addItemToList({ id, title, author, description })
         );
-        console.log(alreadyReadQuantityInStorage);
     };
 
     return (

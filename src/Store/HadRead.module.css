@@ -22,4 +22,5 @@
 }
 .listHadRead {
     margin-right: 2rem;
+    overflow: scroll;
 }

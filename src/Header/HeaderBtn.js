@@ -1,24 +1,23 @@
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import classes from "./HeaderBtn.module.css";
 
 const HeaderBtn = (props) => {
     const alreadyReadQuantity = useSelector((state) => state.list.totalItems);
-    const alreadyReadQuantityInStorage = useSelector(
-        (state) => state.list.isInLocalstorage
-    );
 
-    let badge = alreadyReadQuantity;
+    const [badge, setBadge] = useState("0");
+
     useEffect(() => {
-        console.log(alreadyReadQuantityInStorage);
-        if (!alreadyReadQuantityInStorage) {
-            const value = JSON.parse(localStorage.getItem("itemsList"));
-            badge = value.totalItems;
+        const smth = JSON.parse(localStorage.getItem("itemsList"));
+
+        if (smth) {
+            const value = smth.totalItems;
+            setBadge(value);
         } else {
-            badge = alreadyReadQuantity;
+            setBadge(alreadyReadQuantity);
         }
-    }, []);
+    }, [alreadyReadQuantity]);
 
     return (
         <div className={classes.buttons}>
