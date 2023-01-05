@@ -11,7 +11,7 @@ const Header = (props) => {
                 </div>
                 <div className={classes.welcome}>
                     <h1>Welcome, You</h1>
-                    <HeaderBtn />
+                    <HeaderBtn onClick={props.onShowHadRead} />
                 </div>
             </header>
         </>

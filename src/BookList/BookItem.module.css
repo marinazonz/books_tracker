@@ -5,19 +5,29 @@ li {
     margin-bottom: 2rem;
     border: solid 0.15rem black;
     border-radius: 10px;
+    background-color: #cbedd5;
 }
 .btnList {
     position: relative;
     width: 4rem;
     height: 4rem;
     margin-top: 1rem;
-
+    margin-left: 2rem;
     border-radius: 5px;
     border: none;
     font-size: 1rem;
-    background-color: rgb(247, 62, 161);
-    box-shadow: 6px 6px 6px rgb(155, 153, 153);
+    background-color: #97dece;
+    box-shadow: 6px 6px 6px #439a97;
     cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+.btnList:hover,
+.btnList:active {
+    background-color: #62b6b7;
+    height: 3.5rem;
+    width: 3.5rem;
+    font-size: 0.9rem;
 }
 
 .bookItem {

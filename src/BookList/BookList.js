@@ -5,14 +5,14 @@ import classes from "./BookList.module.css";
 const BOOKS = [
     {
         id: "b1",
-        name: "Bioshock: Rapture",
+        title: "Bioshock: Rapture",
         author: "John Shirley",
         description:
             "The prequel story to the award-winning and bestselling video game franchise. How the majesty of Rapture, the shining city below the sea, became an instant dystopia",
     },
     {
         id: "b2",
-        name: "Jurassic Park: A Novel",
+        title: "Jurassic Park: A Novel",
         author: "Michael Crichton",
         description:
             "#1 NEW YORK TIMES BESTSELLER From the author of Timeline, Sphere, and Congo, this is the classic thriller of science run amok that took the world by storm.",
@@ -20,7 +20,7 @@ const BOOKS = [
 
     {
         id: "b3",
-        name: "Sphere",
+        title: "Sphere",
         author: "Michael Crichton",
         description:
             "Sphere was made into a film directed by Barry Levinson, which starred Dustin Hoffman, Sharon Stone, and Samuel L. Jackson.",
@@ -32,7 +32,7 @@ const BookList = (props) => {
         <BookItem
             key={book.id}
             id={book.id}
-            name={book.name}
+            title={book.title}
             author={book.author}
             description={book.description}
         />
