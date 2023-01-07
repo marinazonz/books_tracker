@@ -25,6 +25,20 @@ const BOOKS = [
         description:
             "Sphere was made into a film directed by Barry Levinson, which starred Dustin Hoffman, Sharon Stone, and Samuel L. Jackson.",
     },
+    {
+        id: "b4",
+        title: "Harry Potter And The Philosopher'S Stone.",
+        author: "J.K. Rowling",
+        description:
+            "An irresistible new edition of Harry Potter and the Philosopher's Stone created with ultra-talented designers MinaLima, the design magicians behind the gorgeous visual graphic style of the Harry Potter and Fantastic Beasts films.",
+    },
+    {
+        id: "b5",
+        title: "HARRY POTTER & CHAMBER OF SECRETS",
+        author: "J.K. Rowling",
+        description:
+            "A stunning new edition of J.K. Rowling's Harry Potter and the Chamber of Secrets, with beautiful full color illustrations and eight interactive paper craft elements featuring the Whomping Willow, the Weasleys' Burrow, and more.",
+    },
 ];
 
 const BookList = (props) => {
