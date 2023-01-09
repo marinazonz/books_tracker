@@ -9,7 +9,7 @@ const HadRead = (props) => {
     const hadReadItems = useSelector((state) => state.list.items);
 
     return (
-        <Modal onClose={props.onClosePending}>
+        <Modal onClose={props.onClose}>
             <ul className={classes.listHadRead}>
                 {hadReadItems.map((item) => (
                     <ItemInStore
@@ -23,10 +23,7 @@ const HadRead = (props) => {
                     />
                 ))}
             </ul>
-            <button
-                className={classes.btnHadRead}
-                onClick={props.onClosePending}
-            >
+            <button className={classes.btnHadRead} onClick={props.onClose}>
                 Close
             </button>
         </Modal>

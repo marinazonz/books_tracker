@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const pendingSlice = createSlice({
-    name: "pendinglist",
-    initialState: JSON.parse(localStorage.getItem("itemsPendingList")) || {
+const inProcessSlice = createSlice({
+    name: "inProcesslist",
+    initialState: JSON.parse(localStorage.getItem("itemsInProcessList")) || {
         items: [],
         totalItems: 0,
     },
     reducers: {
-        addItemToPendingList(state, action) {
+        addItemToInProcessList(state, action) {
             const newItem = action.payload;
             const existingItem = state.items.find(
                 (item) => item.id === newItem.id
@@ -22,21 +22,23 @@ const pendingSlice = createSlice({
                     description: newItem.description,
                 });
                 state.totalItems++;
-                localStorage.setItem("itemsPendingList", JSON.stringify(state));
+                localStorage.setItem(
+                    "itemsInProcessList",
+                    JSON.stringify(state)
+                );
             } else {
                 //if the item does exist in the list:
                 alert("The book is already in the list");
             }
         },
-        removeItemFromPendingList(state, action) {
+        removeItemFromInProcessList(state, action) {
             const id = action.payload;
-
             state.items = state.items.filter((item) => item.id !== id);
             state.totalItems--;
-            localStorage.setItem("itemsPendingList", JSON.stringify(state));
+            localStorage.setItem("itemsInProcessList", JSON.stringify(state));
         },
     },
 });
 
-export const pendingActions = pendingSlice.actions;
-export default pendingSlice;
+export const inProcessActions = inProcessSlice.actions;
+export default inProcessSlice;

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import classes from "./HadRead.module.css";
 
-import ItemInStore from "../PendingList/ItemInStore";
+import ItemInPending from "../PendingList/ItemInPending";
 import Modal from "../UI/Modal";
 
 const Pending = (props) => {
@@ -11,7 +11,7 @@ const Pending = (props) => {
         <Modal onClose={props.onClosePending}>
             <ul className={classes.listHadRead}>
                 {pendingList.map((item) => (
-                    <ItemInStore
+                    <ItemInPending
                         key={item.id}
                         item={{
                             id: item.id,
