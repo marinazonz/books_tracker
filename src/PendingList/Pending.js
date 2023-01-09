@@ -1,17 +1,16 @@
 import { useSelector } from "react-redux";
 
-import Modal from "../UI/Modal";
-import ItemInStore from "./ItemInStore";
-
 import classes from "./HadRead.module.css";
 
-const HadRead = (props) => {
-    const hadReadItems = useSelector((state) => state.list.items);
-    console.log(hadReadItems);
+import ItemInStore from "../PendingList/ItemInStore";
+import Modal from "../UI/Modal";
+
+const Pending = (props) => {
+    const pendingList = useSelector((state) => state.pendinglist.items);
     return (
-        <Modal onClose={props.onClose}>
+        <Modal onClose={props.onClosePending}>
             <ul className={classes.listHadRead}>
-                {hadReadItems.map((item) => (
+                {pendingList.map((item) => (
                     <ItemInStore
                         key={item.id}
                         item={{
@@ -23,11 +22,14 @@ const HadRead = (props) => {
                     />
                 ))}
             </ul>
-            <button className={classes.btnHadRead} onClick={props.onClose}>
+            <button
+                className={classes.btnHadRead}
+                onClick={props.onClosePending}
+            >
                 Close
             </button>
         </Modal>
     );
 };
 
-export default HadRead;
+export default Pending;

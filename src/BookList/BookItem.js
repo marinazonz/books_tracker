@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { optionsActions } from "../storeRedux/options-slice";
+import { pendingActions } from "../storeRedux/options-slice-pending";
 
 import classes from "./BookItem.module.css";
 
@@ -15,6 +16,17 @@ const BookItem = (props) => {
         );
     };
 
+    const addToPendingList = () => {
+        dispatch(
+            pendingActions.addItemToPendingList({
+                id,
+                title,
+                author,
+                description,
+            })
+        );
+    };
+
     return (
         <li>
             <div className={classes.bookItem}>
@@ -24,7 +36,9 @@ const BookItem = (props) => {
                     {props.description}
                 </div>
             </div>
-            <button className={classes.btnList}>Add to pending list</button>
+            <button className={classes.btnList} onClick={addToPendingList}>
+                Add to pending list
+            </button>
             <button
                 className={classes.btnList}
                 onClick={addToAlreadyReadHandler}

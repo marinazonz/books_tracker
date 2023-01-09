@@ -5,25 +5,35 @@ import classes from "./HeaderBtn.module.css";
 
 const HeaderBtn = (props) => {
     const alreadyReadQuantity = useSelector((state) => state.list.totalItems);
+    const inPendingList = useSelector((state) => state.pendinglist.totalItems);
 
-    const [badge, setBadge] = useState("0");
+    const [badgeAlreadyRead, setBadgeAlreadyRead] = useState("0");
+    const [badgePending, setBadgePending] = useState("0");
 
     useEffect(() => {
         const smth = JSON.parse(localStorage.getItem("itemsList"));
+        const forPending = JSON.parse(localStorage.getItem("itemsPendingList"));
 
         if (smth) {
             const value = smth.totalItems;
-            setBadge(value);
+            setBadgeAlreadyRead(value);
         } else {
-            setBadge(alreadyReadQuantity);
+            setBadgeAlreadyRead(alreadyReadQuantity);
         }
-    }, [alreadyReadQuantity]);
+
+        if (forPending) {
+            const value = forPending.totalItems;
+            setBadgePending(value);
+        } else {
+            setBadgePending(inPendingList);
+        }
+    }, [alreadyReadQuantity, inPendingList]);
 
     return (
         <div className={classes.buttons}>
-            <button className={classes.button}>
+            <button className={classes.button} onClick={props.onClickPending}>
                 <span>Pending to read</span>
-                <span className={classes.spanAlready1}>0</span>
+                <span className={classes.spanAlready1}>{badgePending}</span>
             </button>
             <button className={classes.button}>
                 <span>Books in process</span>
@@ -31,7 +41,7 @@ const HeaderBtn = (props) => {
             </button>
             <button className={classes.button} onClick={props.onClick}>
                 <span>Already had read</span>
-                <span className={classes.spanAlready}>{badge}</span>
+                <span className={classes.spanAlready}>{badgeAlreadyRead}</span>
             </button>
         </div>
     );

@@ -11,7 +11,10 @@ const Header = (props) => {
                 </div>
                 <div className={classes.welcome}>
                     <h1>Welcome, You</h1>
-                    <HeaderBtn onClick={props.onShowHadRead} />
+                    <HeaderBtn
+                        onClick={props.onShowHadRead}
+                        onClickPending={props.onShowPendingList}
+                    />
                 </div>
             </header>
         </>
