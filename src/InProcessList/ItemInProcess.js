@@ -1,32 +1,22 @@
 import { useDispatch } from "react-redux";
 import { optionsActions } from "../storeRedux/options-slice";
-import { pendingActions } from "../storeRedux/options-slice-pending";
 import { inProcessActions } from "../storeRedux/options-slice-inprocess";
+import classes from "./ItemInProcess.module.css";
 
-import classes from "./ItemInPending.module.css";
-
-const ItemInPending = (props) => {
+const ItemInProcess = (props) => {
     const dispatch = useDispatch();
 
     const { id, title, author, description } = props.item;
 
-    const moveInProcessHandler = () => {
-        dispatch(
-            inProcessActions.addItemToInProcessList({
-                id,
-                title,
-                author,
-                description,
-            })
-        );
-        dispatch(pendingActions.removeItemFromPendingList(id));
+    const deleteItemFromInProcessHandler = () => {
+        dispatch(inProcessActions.removeItemFromInProcessList(id));
     };
 
     const moveToHadReadHandler = () => {
         dispatch(
             optionsActions.addItemToList({ id, title, author, description })
         );
-        dispatch(pendingActions.removeItemFromPendingList(id));
+        dispatch(inProcessActions.removeItemFromInProcessList(id));
     };
 
     return (
@@ -36,9 +26,11 @@ const ItemInPending = (props) => {
                 <div className={classes.bookAuthor}>{author}</div>
                 <div className={classes.bookDescription}>{description}</div>
                 <div className={classes.buttonsPendingList}>
-                    <button onClick={moveInProcessHandler}>In process</button>
+                    <button onClick={deleteItemFromInProcessHandler}>
+                        Delete from this list
+                    </button>
                     <button onClick={moveToHadReadHandler}>
-                        Already had read
+                        Finished reading
                     </button>
                 </div>
             </div>
@@ -46,4 +38,4 @@ const ItemInPending = (props) => {
     );
 };
 
-export default ItemInPending;
+export default ItemInProcess;

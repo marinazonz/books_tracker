@@ -14,6 +14,7 @@ const Header = (props) => {
                     <HeaderBtn
                         onClick={props.onShowHadRead}
                         onClickPending={props.onShowPendingList}
+                        onClickInProcess={props.onShowInProcessList}
                     />
                 </div>
             </header>

@@ -1,0 +1,41 @@
+.bookItem {
+    margin-left: 0;
+    width: 30rem;
+}
+.bookItem h3 {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+.bookAuthor {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.bookDescription {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+li {
+    border: none;
+}
+.buttonsPendingList {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 70%;
+}
+.buttonsPendingList button {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffb26b;
+    box-shadow: 2px 2px 3px #ff7b54;
+    cursor: pointer;
+}
+
+.buttonsPendingList button:hover {
+    background-color: #ff7b54;
+}

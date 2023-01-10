@@ -22,6 +22,7 @@
 }
 .listHadRead {
     margin-right: 2rem;
-    height: 40rem;
+    min-height: 20rem;
+    max-height: 40rem;
     overflow: scroll;
 }

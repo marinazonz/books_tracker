@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import classes from "./HadRead.module.css";
+import classes from "./PendingList.module.css";
 
 import ItemInPending from "../PendingList/ItemInPending";
 import Modal from "../UI/Modal";

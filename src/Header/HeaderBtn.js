@@ -6,13 +6,20 @@ import classes from "./HeaderBtn.module.css";
 const HeaderBtn = (props) => {
     const alreadyReadQuantity = useSelector((state) => state.list.totalItems);
     const inPendingList = useSelector((state) => state.pendinglist.totalItems);
+    const inProcessList = useSelector(
+        (state) => state.inProcessList.totalItems
+    );
 
     const [badgeAlreadyRead, setBadgeAlreadyRead] = useState("0");
     const [badgePending, setBadgePending] = useState("0");
+    const [badgeInProcess, setBadgeInProcess] = useState("0");
 
     useEffect(() => {
         const smth = JSON.parse(localStorage.getItem("itemsList"));
         const forPending = JSON.parse(localStorage.getItem("itemsPendingList"));
+        const forInProcess = JSON.parse(
+            localStorage.getItem("itemsInProcessList")
+        );
 
         if (smth) {
             const value = smth.totalItems;
@@ -27,7 +34,14 @@ const HeaderBtn = (props) => {
         } else {
             setBadgePending(inPendingList);
         }
-    }, [alreadyReadQuantity, inPendingList]);
+
+        if (forInProcess) {
+            const value = forInProcess.totalItems;
+            setBadgeInProcess(value);
+        } else {
+            setBadgeInProcess(inProcessList);
+        }
+    }, [alreadyReadQuantity, inPendingList, inProcessList]);
 
     return (
         <div className={classes.buttons}>
@@ -35,9 +49,9 @@ const HeaderBtn = (props) => {
                 <span>Pending to read</span>
                 <span className={classes.spanAlready1}>{badgePending}</span>
             </button>
-            <button className={classes.button}>
+            <button className={classes.button} onClick={props.onClickInProcess}>
                 <span>Books in process</span>
-                <span className={classes.spanAlready}>0</span>
+                <span className={classes.spanAlready}>{badgeInProcess}</span>
             </button>
             <button className={classes.button} onClick={props.onClick}>
                 <span>Already had read</span>
