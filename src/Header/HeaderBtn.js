@@ -7,7 +7,7 @@ const HeaderBtn = (props) => {
     const alreadyReadQuantity = useSelector((state) => state.list.totalItems);
     const inPendingList = useSelector((state) => state.pendinglist.totalItems);
     const inProcessList = useSelector(
-        (state) => state.inProcessList.totalItems
+        (state) => state.inProcesslist.totalItems
     );
 
     const [badgeAlreadyRead, setBadgeAlreadyRead] = useState("0");
@@ -44,18 +44,27 @@ const HeaderBtn = (props) => {
     }, [alreadyReadQuantity, inPendingList, inProcessList]);
 
     return (
-        <div className={classes.buttons}>
-            <button className={classes.button} onClick={props.onClickPending}>
+        <div className='flex justify-between mt-4 '>
+            <button
+                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                onClick={props.onClickPending}
+            >
                 <span>Pending to read</span>
-                <span className={classes.spanAlready1}>{badgePending}</span>
+                <span className=''>{badgePending}</span>
             </button>
-            <button className={classes.button} onClick={props.onClickInProcess}>
+            <button
+                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                onClick={props.onClickInProcess}
+            >
                 <span>Books in process</span>
-                <span className={classes.spanAlready}>{badgeInProcess}</span>
+                <span className=''>{badgeInProcess}</span>
             </button>
-            <button className={classes.button} onClick={props.onClick}>
+            <button
+                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                onClick={props.onClick}
+            >
                 <span>Already had read</span>
-                <span className={classes.spanAlready}>{badgeAlreadyRead}</span>
+                <span className=''>{badgeAlreadyRead}</span>
             </button>
         </div>
     );

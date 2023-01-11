@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Fragment } from "react";
 
 import { uiActions } from "./storeRedux/ui-slice";
 
@@ -44,23 +45,25 @@ function App(props) {
     );
 
     return (
-        <>
-            {ModalIsShown && <HadRead onClose={hideModalHandler} />}
-            {ModalForPendingIsShown && (
-                <Pending onClosePending={hideModalForPendingList} />
-            )}
-            {ModalInProcessIsShown && (
-                <InProcess onCloseInProcess={hideInProcessModalHandler} />
-            )}
-            <Header
-                onShowHadRead={showModalHandler}
-                onShowPendingList={showPendingModalHandler}
-                onShowInProcessList={showInProcessModalHandler}
-            />
-            <main>
-                <BookList />
-            </main>
-        </>
+        <Fragment>
+            
+                {ModalIsShown && <HadRead onClose={hideModalHandler} />}
+                {ModalForPendingIsShown && (
+                    <Pending onClosePending={hideModalForPendingList} />
+                )}
+                {ModalInProcessIsShown && (
+                    <InProcess onCloseInProcess={hideInProcessModalHandler} />
+                )}
+                <Header
+                    onShowHadRead={showModalHandler}
+                    onShowPendingList={showPendingModalHandler}
+                    onShowInProcessList={showInProcessModalHandler}
+                />
+                <main>
+                    <BookList />
+                </main>
+            
+        </Fragment>
     );
 }
 

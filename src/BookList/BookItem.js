@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { optionsActions } from "../storeRedux/options-slice";
 import { pendingActions } from "../storeRedux/options-slice-pending";

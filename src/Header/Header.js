@@ -1,16 +1,22 @@
 import HeaderBtn from "./HeaderBtn";
-import classes from "./Header.module.css";
+
 import logo from "../pics/logo.png";
 
 const Header = (props) => {
     return (
         <>
-            <header className={classes.header}>
-                <div className={classes.logo}>
-                    <img src={logo} alt='doggie' />
+            <header className='flex fixed h-60 justify-start w-full border-b-2 border-slate-300 top-0 z-10 '>
+                <div>
+                    <img
+                        className='rounded-full sd:h-50 sd:w-50 md:h-auto md:w-48 mx-auto'
+                        src={logo}
+                        alt='doggie'
+                    />
                 </div>
-                <div className={classes.welcome}>
-                    <h1>Welcome, You</h1>
+                <div>
+                    <h1 className='mx-8 mb-4 w-3/5 text-left text-4xl font-bold'>
+                        Welcome, You
+                    </h1>
                     <HeaderBtn
                         onClick={props.onShowHadRead}
                         onClickPending={props.onShowPendingList}
