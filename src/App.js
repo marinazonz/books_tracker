@@ -46,23 +46,21 @@ function App(props) {
 
     return (
         <Fragment>
-            
-                {ModalIsShown && <HadRead onClose={hideModalHandler} />}
-                {ModalForPendingIsShown && (
-                    <Pending onClosePending={hideModalForPendingList} />
-                )}
-                {ModalInProcessIsShown && (
-                    <InProcess onCloseInProcess={hideInProcessModalHandler} />
-                )}
-                <Header
-                    onShowHadRead={showModalHandler}
-                    onShowPendingList={showPendingModalHandler}
-                    onShowInProcessList={showInProcessModalHandler}
-                />
-                <main>
-                    <BookList />
-                </main>
-            
+            {ModalIsShown && <HadRead onClose={hideModalHandler} />}
+            {ModalForPendingIsShown && (
+                <Pending onClosePending={hideModalForPendingList} />
+            )}
+            {ModalInProcessIsShown && (
+                <InProcess onCloseInProcess={hideInProcessModalHandler} />
+            )}
+            <Header
+                onShowHadRead={showModalHandler}
+                onShowPendingList={showPendingModalHandler}
+                onShowInProcessList={showInProcessModalHandler}
+            />
+            <main>
+                <BookList />
+            </main>
         </Fragment>
     );
 }

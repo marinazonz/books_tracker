@@ -10,22 +10,24 @@ const HadRead = (props) => {
 
     return (
         <Modal onClose={props.onClose}>
-            <ul className={classes.listHadRead}>
-                {hadReadItems.map((item) => (
-                    <ItemInStore
-                        key={item.id}
-                        item={{
-                            id: item.id,
-                            title: item.title,
-                            author: item.author,
-                            description: item.description,
-                        }}
-                    />
-                ))}
-            </ul>
-            <button className={classes.btnHadRead} onClick={props.onClose}>
-                Close
-            </button>
+            <section className='w-full'>
+                <ul className='grid'>
+                    {hadReadItems.map((item) => (
+                        <ItemInStore
+                            key={item.id}
+                            item={{
+                                id: item.id,
+                                title: item.title,
+                                author: item.author,
+                                description: item.description,
+                            }}
+                        />
+                    ))}
+                </ul>
+                <button className='' onClick={props.onClose}>
+                    Close
+                </button>
+            </section>
         </Modal>
     );
 };

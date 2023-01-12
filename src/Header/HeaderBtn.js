@@ -46,25 +46,37 @@ const HeaderBtn = (props) => {
     return (
         <div className='flex justify-between mt-4 '>
             <button
-                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                className='h-20 w-20  font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-4 md:h-20 md:w-40 grid place-items-center'
                 onClick={props.onClickPending}
             >
-                <span>Pending to read</span>
-                <span className=''>{badgePending}</span>
+                <span className='text-orange-700 mt-2 text-lg'>
+                    Pending to read
+                </span>
+                <span className='opacity-30 text-6xl place-self-center -mt-14 -ml-2'>
+                    {badgePending}
+                </span>
             </button>
             <button
-                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                className='h-20 w-20  font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-4 md:h-20 md:w-40 grid place-items-center'
                 onClick={props.onClickInProcess}
             >
-                <span>Books in process</span>
-                <span className=''>{badgeInProcess}</span>
+                <span className='text-orange-700 mt-2 text-lg'>
+                    Books in process
+                </span>
+                <span className='opacity-30 text-6xl place-self-center -mt-14 -ml-2'>
+                    {badgeInProcess}
+                </span>
             </button>
             <button
-                className='md:h-24 md:w-40 text-xl font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-8 sm:h-24 sm:w-24'
+                className='h-20 w-20  font-bold shadow-md cursor-pointer border-none rounded-lg mt-1 mx-4 md:h-20 md:w-40 grid place-items-center'
                 onClick={props.onClick}
             >
-                <span>Already had read</span>
-                <span className=''>{badgeAlreadyRead}</span>
+                <span className='text-orange-700 mt-2 text-lg'>
+                    Already had read
+                </span>
+                <span className='opacity-30 text-6xl place-self-center -mt-14 -ml-2'>
+                    {badgeAlreadyRead}
+                </span>
             </button>
         </div>
     );

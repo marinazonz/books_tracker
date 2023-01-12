@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import { optionsActions } from "../storeRedux/options-slice";
 import { pendingActions } from "../storeRedux/options-slice-pending";
 
-import classes from "./BookItem.module.css";
-
 const BookItem = (props) => {
     const dispatch = useDispatch();
 
@@ -28,19 +26,20 @@ const BookItem = (props) => {
     };
 
     return (
-        <li>
-            <div className={classes.bookItem}>
-                <h3>{props.title}</h3>
-                <div className={classes.bookAuthor}>{props.author}</div>
-                <div className={classes.bookDescription}>
-                    {props.description}
-                </div>
+        <li className='grid gap-4 justify-items-end place-content-center mb-10 mt-5 ml-5 bg-emerald-200 rounded-lg'>
+            <div className='flex flex-col text-left ml-2'>
+                <h3 className='font-semibold text-lg'>{props.title}</h3>
+                <div className='italic'>{props.author}</div>
+                <div>{props.description}</div>
             </div>
-            <button className={classes.btnList} onClick={addToPendingList}>
+            <button
+                className='font-semibold rounded bg-orange-500 w-50 px-2'
+                onClick={addToPendingList}
+            >
                 Add to pending list
             </button>
             <button
-                className={classes.btnList}
+                className='font-semibold rounded bg-orange-500 w-50 px-2'
                 onClick={addToAlreadyReadHandler}
             >
                 Already had read

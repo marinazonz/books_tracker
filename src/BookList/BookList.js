@@ -58,7 +58,7 @@ const BookList = (props) => {
                 <div>
                     <h2>Choose your book</h2>
                 </div>
-                <ul>{list}</ul>
+                <ul className='grid md:grid md:grid-cols-4 md:gap-4'>{list}</ul>
             </section>
         </>
     );

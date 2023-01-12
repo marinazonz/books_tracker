@@ -8,13 +8,13 @@ const Header = (props) => {
             <header className='flex fixed h-60 justify-start w-full border-b-2 border-slate-300 top-0 z-10 '>
                 <div>
                     <img
-                        className='rounded-full sd:h-50 sd:w-50 md:h-auto md:w-48 mx-auto'
+                        className='rounded-full h-20 w-20 md:h-auto md:w-48 mx-auto'
                         src={logo}
                         alt='doggie'
                     />
                 </div>
                 <div>
-                    <h1 className='mx-8 mb-4 w-3/5 text-left text-4xl font-bold'>
+                    <h1 className='mx-4 mb-8 w-2/5 text-left text-4xl font-bold'>
                         Welcome, You
                     </h1>
                     <HeaderBtn
