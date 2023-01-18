@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { optionsActions } from "../storeRedux/options-slice";
 import { inProcessActions } from "../storeRedux/options-slice-inprocess";
-import classes from "./ItemInProcess.module.css";
 
 const ItemInProcess = (props) => {
     const dispatch = useDispatch();
@@ -20,16 +19,22 @@ const ItemInProcess = (props) => {
     };
 
     return (
-        <li>
-            <div className={classes.bookItem}>
-                <h3>{title}</h3>
-                <div className={classes.bookAuthor}>{author}</div>
-                <div className={classes.bookDescription}>{description}</div>
-                <div className={classes.buttonsPendingList}>
-                    <button onClick={deleteItemFromInProcessHandler}>
+        <li className='flex flex-row mb-8 rounded-md bg-orange-100 md:justify-center md:text-center'>
+            <div className='flex flex-col justify-between my-3  w-11/12 '>
+                <h3 className='text-xl font-semibold'>{title}</h3>
+                <div className='text-base italic'>{author}</div>
+                <div className='hidden md:inline-block'>{description}</div>
+                <div className='flex flex-col justify-around md:self-center text-base ml-6 md:w-40'>
+                    <button
+                        className='rounded-md bg-orange-400 my-1'
+                        onClick={deleteItemFromInProcessHandler}
+                    >
                         Delete from this list
                     </button>
-                    <button onClick={moveToHadReadHandler}>
+                    <button
+                        className='rounded-md bg-orange-400 my-1'
+                        onClick={moveToHadReadHandler}
+                    >
                         Finished reading
                     </button>
                 </div>

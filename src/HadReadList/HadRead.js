@@ -3,14 +3,12 @@ import { useSelector } from "react-redux";
 import Modal from "../UI/Modal";
 import ItemInStore from "./ItemInStore";
 
-import classes from "./HadRead.module.css";
-
 const HadRead = (props) => {
     const hadReadItems = useSelector((state) => state.list.items);
 
     return (
         <Modal onClose={props.onClose}>
-            <section className='w-full'>
+            <section className='flex flex-col h-96  overflow-auto'>
                 <ul className='grid'>
                     {hadReadItems.map((item) => (
                         <ItemInStore
@@ -24,7 +22,10 @@ const HadRead = (props) => {
                         />
                     ))}
                 </ul>
-                <button className='' onClick={props.onClose}>
+                <button
+                    className='text-xl rounded-md bg-orange-400 w-1/3 font-semibold fixed top-full left-2/3 right-0'
+                    onClick={props.onClose}
+                >
                     Close
                 </button>
             </section>

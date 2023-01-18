@@ -1,33 +1,33 @@
 import { useSelector } from "react-redux";
 
-import classes from "./PendingList.module.css";
-
 import ItemInPending from "../PendingList/ItemInPending";
 import Modal from "../UI/Modal";
 
 const Pending = (props) => {
     const pendingList = useSelector((state) => state.pendinglist.items);
     return (
-        <Modal onClose={props.onClosePending}>
-            <ul className={classes.listHadRead}>
-                {pendingList.map((item) => (
-                    <ItemInPending
-                        key={item.id}
-                        item={{
-                            id: item.id,
-                            title: item.title,
-                            author: item.author,
-                            description: item.description,
-                        }}
-                    />
-                ))}
-            </ul>
-            <button
-                className={classes.btnHadRead}
-                onClick={props.onClosePending}
-            >
-                Close
-            </button>
+        <Modal onClose={props.onClose}>
+            <section className='flex flex-col h-96  overflow-auto'>
+                <ul className=''>
+                    {pendingList.map((item) => (
+                        <ItemInPending
+                            key={item.id}
+                            item={{
+                                id: item.id,
+                                title: item.title,
+                                author: item.author,
+                                description: item.description,
+                            }}
+                        />
+                    ))}
+                </ul>
+                <button
+                    className='text-xl rounded-md bg-orange-400 w-1/3 font-semibold fixed top-full left-2/3 right-0'
+                    onClick={props.onClosePending}
+                >
+                    Close
+                </button>
+            </section>
         </Modal>
     );
 };
